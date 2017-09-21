@@ -22,11 +22,16 @@
 
 // 无需多言，更简单，更霸道，一看就懂
 function compose(...argFun) {
-    return function (arg) {
+    return function (...arg) {
         let returnFunc = arg;
+
         for (let i = argFun.length - 1; i > -1; i--) {
             if (typeof argFun[i] === "function") {
-                returnFunc = argFun[i](returnFunc);
+                if (i === argFun.length - 1) {
+                    returnFunc = argFun[i].apply(this, returnFunc)
+                } else {
+                    returnFunc = argFun[i].call(this, returnFunc)
+                }
             } else {
                 throw new Error(`compose方法${argFun}必须是function`);
             }

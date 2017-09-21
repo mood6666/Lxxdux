@@ -1,10 +1,12 @@
 import compose from './compose';
 
-var a = x => x + 1;
-var c = x => x*x;
-var d = x => x*x;
-var b = compose();
+var a = (a,b) => a + b;
 
-console.log(b(2))
+var b = x => x * x;
+
+var c =compose(b, a);
+var aaa = c(1,2);
+console.log(aaa)
+
 
 
