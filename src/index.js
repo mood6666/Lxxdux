@@ -1,12 +1,14 @@
-import compose from './compose';
+import combineReducer from './combineReducers';
 
-var a = (a,b) => a + b;
+const aaa = {
+    aaa: 1111,
+    bbb: 222,
+    ccc: (state = {}, action) => '1111',
+    ddd: (a = {}, b) => '222222'
+};
 
-var b = x => x * x;
-
-var c =compose(b, a);
-var aaa = c(1,2);
-console.log(aaa)
+var bbb = combineReducer(aaa);
+console.log(bbb())
 
 
 
