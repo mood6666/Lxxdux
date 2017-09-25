@@ -6,6 +6,9 @@ export function isPlainObject(value) {
     return Object.getPrototypeOf(value) === null || Object === value.constructor;
 }
 
+// 简单讲下思路吧
+// 首先 传给combineReducers的必须是一个对象，先遍历这个对象会过滤除了function类型的所有数据类型。然后遍历出一个reducer的集合，每一次dispatch的时候，就会调用combine,遍历reducer,然后根据key,重写store。
+// 这里的代码不是很难，耐点心一定可以理解
 export default function combineReducers(reducerObj) {
     const keyArr = Object.keys(reducerObj);
     const finalReducer = {};
