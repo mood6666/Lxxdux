@@ -20,7 +20,7 @@ export default function combineReducers(reducerObj) {
         }
     });
 
-    return function combine (state = {}, action) {
+    return function combine (state = {}, action)  {
         const reducerKeyArr = Object.keys(finalReducer);
         const nextState = {};
         let hasChanged = false;

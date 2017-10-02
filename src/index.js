@@ -1,14 +1,14 @@
 import combineReducer from './combineReducers';
+import createStore from './createStore';
+import bindActionCreators from './bindActionCreators';
+import applyMiddleware from './applyMiddleware';
 
-const aaa = {
-    aaa: 1111,
-    bbb: 222,
-    ccc: (state = {}, action) => '1111',
-    ddd: (a = {}, b) => '222222'
-};
-
-var bbb = combineReducer(aaa);
-console.log(bbb())
+export {
+    createStore,
+    combineReducer,
+    bindActionCreators,
+    applyMiddleware
+}
 
 
 
